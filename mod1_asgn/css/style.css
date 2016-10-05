@@ -1,13 +1,15 @@
 .green {
   color : green;
   border-color : green;
-  border : 2px;
+  border-width : 2px;
+  border-style : solid;
 }
 
 .red {
   color : red;
   border-color : red;
-  border : 2px;
+  border-width : 2px;
+  border-style : solid;
 }
 
 
