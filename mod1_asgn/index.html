@@ -2,18 +2,20 @@
 <html>
   <head>
     <title>	Lunch Assistant!</title>
+    <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="scripts/angular.min.js"></script>
     <script type="text/javascript" src="scripts/app.js"></script>
   <head>
   <body ng-app="lunchApp" ng-controller="lunchController">
     <div>
       <br>
-      What would you like to have for lunch dear? &nbsp;&nbsp;<input type="text" ng-model="lunch_items" placeholder="comma separated items"/>
+      What would you like to have for lunch dear? &nbsp;&nbsp;<input type="text" ng-model="lunchItems" placeholder="comma separated items"/>
+<!-- I don't consider empty items entered by user i.e. pizza,,,,rice will be treated as two items only -->
       <br>
       <br>
       <button ng-click="updateVerdict();displayTheVerdict();">Check If Too Much!</button>
-      <button ng-click="reset();">Reset</button>
-      <p ng-show="showTheVerdict">{{verdict}}</p>
+<!--      <button ng-click="reset();">Reset</button> -->
+      <p ng-class="styleClass" ng-show="showTheVerdict">{{verdict}}</p>
     </div>	
   </body>
 </html>
