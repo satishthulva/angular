@@ -7,8 +7,8 @@
 
   <body ng-app="shoppingListApp">
     <div ng-controller="buyListController as buyCtrl">
-      <h3 ng-show="buyCtrl.items.length > 0">To Buy<h3>
-      <h3 ng-show="buyCtrl.items.length == 0">All Items Bought!<h3>
+      <h3 ng-show="buyCtrl.items.length > 0">To Buy</h3>
+      <h3 ng-show="buyCtrl.items.length == 0">All Items Bought!</h3>
 
       <ol>
         <li ng-repeat="item in buyCtrl.items">
@@ -19,8 +19,8 @@
     </div>
 
     <div ng-controller="boughtListController as boughtCtrl">
-      <h3 ng-show="boughtCtrl.items.length > 0">Items Bought<h3>
-      <h3 ng-show="boughtCtrl.items.length == 0">Nothing Bought Yet!<h3>
+      <h3 ng-show="boughtCtrl.items.length > 0">Items Bought</h3>
+      <h3 ng-show="boughtCtrl.items.length == 0">Nothing Bought Yet!</h3>
 
       <ol>
         <li ng-repeat="item in boughtCtrl.items">
@@ -28,6 +28,6 @@
         </li>
       </ol>
     </div>
-  <body>
+  </body>
 
 </html>
