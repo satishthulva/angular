@@ -68,6 +68,8 @@
         return items;
       }
     }
+
+    return func
   }
 
 })()
