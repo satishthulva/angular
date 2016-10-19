@@ -12,8 +12,8 @@
       <h3 ng-show="buyCtrl.items.length == 0">All Items Bought!</h3>
 
       <ol>
-        <li ng-repeat="item in buyCtrl.items" class="row-fluid">
-          <div class="span9">Buy {{item.quantity}} of {{item.name}}.</div>
+        <li ng-repeat="item in buyCtrl.items" class="row-fluid span9">
+          <span class="span6">Buy {{item.quantity}} of {{item.name}}.</span>
           <button ng-click="buyCtrl.removeItem($index)" class="span2">Buy!</button>
           <br>
         </li>
