@@ -3,6 +3,7 @@
     <title>Shopping list check-off</title>
     <script src="scripts/angular.min.js" type="text/javascript"></script>
     <script src="scripts/app.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
   </head>
 
   <body ng-app="shoppingListApp">
@@ -11,9 +12,10 @@
       <h3 ng-show="buyCtrl.items.length == 0">All Items Bought!</h3>
 
       <ol>
-        <li ng-repeat="item in buyCtrl.items">
+        <li ng-repeat="item in buyCtrl.items" class="span9">
           Buy {{item.quantity}} of {{item.name}}.
-          <button ng-click="buyCtrl.removeItem($index)">Buy!</button>
+          <button ng-click="buyCtrl.removeItem($index)" class="span2">Buy!</button>
+          <br>
         </li>
       </ol>
     </div>
