@@ -3,73 +3,54 @@
   angular.module('shoppingListApp', [])
          .controller('buyListController', buyListControllerFunc)
          .controller('boughtListController', boughtListControllerFunc)
-         .factory('shoppingListServiceFactory', shoppingListServiceFactoryFunc)
+         .service('shoppingListService', shoppingListServiceFunc)
 
 /**
-* Controller handling list of items still to buy
+* Controller handling list of itemsToBuy still to buy
 **/
-  function buyListControllerFunc(shoppingListServiceFactory){
+  function buyListControllerFunc(shoppingListService){
     var buyCtrl = this;
-
-    var someService = new shoppingListServiceFactory([{name:'Dark Chocolates', quantity:9}, {name:'Honey', quantity:'250 ml'}, {name:'Almonds', quantity :'200 Gms'}, {name :'Walnuts', quantity:'100 Gms'}, {name:'Tomatos', quantity:'1 Kg'}, {name : 'Oats', quantity : '2 Kg'}]);
   
-    buyCtrl.items = someService.getItems();
+    buyCtrl.items = shoppingListService.getItemsToBuy();
 
     buyCtrl.removeItem = function(index){
-      someService.removeItem(index);
+      shoppingListService.removeItem(index);
     }
   }
 
-  buyListControllerFunc.$inject = ['shoppingListServiceFactory']
+  buyListControllerFunc.$inject = ['shoppingListService']
 
 /**
-* Controller handling list of items bought already
+* Controller handling list of itemsToBuy bought already
 **/
-  function boughtListControllerFunc(shoppingListServiceFactory){
+  function boughtListControllerFunc(shoppingListService){
     var boughtCtrl = this;
-    
-    var someService = new shoppingListServiceFactory();
-
-    boughtCtrl.items = someService.getItems();
-
-    boughtCtrl.addItem = function(name, quantity){
-      someService.addItem(name, quantity);
-    }
-
+    boughtCtrl.items = shoppingListService.getItemsBought();
   }
 
-  buyListControllerFunc.$inject = ['shoppingListServiceFactory']
+  buyListControllerFunc.$inject = ['shoppingListService']
 
 /**
-* Factory providing service to maintain a list of shopping items
+* Factory providing service to maintain a list of shopping itemsToBuy
 **/
-  function shoppingListServiceFactoryFunc(){
-    var func = function(defaultItems){
+  function shoppingListServiceFunc(){
       var servThis = this;      
 
-      var items = [];
-      if(defaultItems !== undefined)
-        items = defaultItems;
+      var itemsToBuy = [{name:'Dark Chocolates', quantity:9}, {name:'Honey', quantity:'250 ml'}, {name:'Almonds', quantity :'200 Gms'}, {name :'Walnuts', quantity:'100 Gms'}, {name:'Tomatos', quantity:'1 Kg'}, {name : 'Oats', quantity : '2 Kg'}];
 
-      servThis.addItem = function(itemName, itemQuantity){
-        var item = {
-          name : itemName,
-          quantity : itemQuantity
-        }
-
-        items.push(item);
-      }
+      var itemsBought = [];
 
       servThis.removeItem = function(index){
-        items.splice(index, 1);
+        itemsBought.push(itemsToBuy.splice(index, 1)[0]);
       }
 
-      servThis.getItems = function(){
-        return items;
+      servThis.getItemsToBuy = function(){
+        return itemsToBuy;
       }
-    }
 
-    return func
+      servThis.getItemsBought = function(){
+        return itemsBought;
+      }
   }
 
 })()
