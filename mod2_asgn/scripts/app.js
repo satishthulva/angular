@@ -1,6 +1,6 @@
 (function(){
 
-  angular.module('shoppingListApp')
+  angular.module('shoppingListApp', [])
          .controller('buyListController', buyListControllerFunc)
          .controller('boughtListController', boughtListControllerFunc)
          .factory('shoppingListServiceFactory', shoppingListServiceFactoryFunc)
