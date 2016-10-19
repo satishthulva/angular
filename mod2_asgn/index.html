@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Shopping list check-off<title>
+    <script src="scripts/angular.min.js" type="text/javascript"></script>
+    <script src="scripts/app.js" type="text/javascript"></script>
+  </head>
+
+  <body ng-app="shoppingListApp">
+    <div ng-controller="buyListController as buyCtrl">
+      <h3 ng-show="buyCtrl.items.length > 0">To Buy<h3>
+      <h3 ng-show="buyCtrl.items.length == 0">All Items Bought!<h3>
+
+      <ol>
+        <li ng-repeat="item in buyCtrl.items">
+          Buy {{item.quantity}} of {{item.name}}.
+          <button ng-click="buyCtrl.buyItem($index)">Buy!</button>
+        </li>
+      </ol>
+    </div>
+
+    <div ng-controller="boughtListController as boughtCtrl">
+      <h3 ng-show="boughtCtrl.items.length > 0">Items Bought<h3>
+      <h3 ng-show="boughtCtrl.items.length == 0">Nothing Bought Yet!<h3>
+
+      <ol>
+        <li ng-repeat="item in boughtCtrl.items">
+          Bought {{item.quantity}} of {{item.name}}.
+        </li>
+      </ol>
+    </div>
+  <body>
+
+</html>
