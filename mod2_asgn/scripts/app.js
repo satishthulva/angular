@@ -11,7 +11,7 @@
   function buyListControllerFunc(shoppingListServiceFactory){
     var buyCtrl = this;
 
-    var someService = shoppingListServiceFactory([{name:'Dark Chocolates', quantity:9}, {name:'Honey', quantity:'250 ml'}, {name:'Almonds', quantity :'200 Gms'}, {name :'Walnuts', quantity:'100 Gms'}, {name:'Tomatos', quantity:'1 Kg'}, {name : 'Oats', quantity : '2 Kg'}]);
+    var someService = new shoppingListServiceFactory([{name:'Dark Chocolates', quantity:9}, {name:'Honey', quantity:'250 ml'}, {name:'Almonds', quantity :'200 Gms'}, {name :'Walnuts', quantity:'100 Gms'}, {name:'Tomatos', quantity:'1 Kg'}, {name : 'Oats', quantity : '2 Kg'}]);
   
     buyCtrl.items = someService.getItems();
 
@@ -28,7 +28,7 @@
   function boughtListControllerFunc(shoppingListServiceFactory){
     var boughtCtrl = this;
     
-    var someService = shoppingListServiceFactory();
+    var someService = new shoppingListServiceFactory();
 
     boughtCtrl.items = someService.getItems();
 
