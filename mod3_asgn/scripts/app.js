@@ -44,9 +44,9 @@ function restaurantMenuSearchControllerFunc(menuFetchService){
   **/
   ref.fetchMatchedItems = function(){
     menuFetchService.fetchMatchedItems(ref.searchKey).then(function(resp){
-      ref.matchedItems = resp.data;
+      ref.matchedItems = resp;
+      ref.atleastOneClick = true;
     });
-    ref.atleastOneClick = true;
   };
 
   ref.removeItem = function(index){
