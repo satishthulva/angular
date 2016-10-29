@@ -2,7 +2,7 @@
 * Always make your javascript file IIFE - Immediately Invoked Function Expression - so that we won't mutate global scope unknowingly( because function creates its' own scope )
 **/
 (function(){
-angular.module('restaurantMenuSearchApp',['$http'])
+angular.module('restaurantMenuSearchApp',[])
   .controller('restaurantMenuSearchController', restaurantMenuSearchControllerFunc)
   .directive('matchedItems', restaurantMenuDirectiveFunc);
 
