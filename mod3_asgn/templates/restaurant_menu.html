@@ -1,9 +1,12 @@
 <div>
+
   <span ng-show="matches.length===0 && atleastOneClick===true">Nothing found!</span>
+  <br>
 
   <ul>
     <li ng-repeat="item in matches">
       {{item.short_name}}&nbsp;&nbsp;{{item.name}}&nbsp;&nbsp;{{item.description}}&nbsp;&nbsp;<button ng-click="removeItem({index:$index})">Don't want this one!</button>
+      <br>
     </li>
   <ul>
 </div>

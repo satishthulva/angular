@@ -9,6 +9,7 @@
       <h2>Menu</h2>
       <input type="text" placeholder="search for the dish" ng-model="ctrl.searchKey"></input>
       <button ng-click="ctrl.fetchMatchedItems()">Narrow It Down For Me!</button>
+      <br>
 
       <matched-items items="ctrl.matchedItems" remove-item="ctrl.removeItem(index)" atleast-one-click="ctrl.atleastOneClick"></matched-items>
     </div>
