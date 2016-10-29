@@ -19,7 +19,7 @@ function restaurantMenuSearchControllerFunc($http){
   ref.fetchMatchedItems = function(){
     $http.get('https://davids-restaurant.herokuapp.com/menu_items.json').then(function(resp){
         ref.matchedItems = [];
-        temp = resp.data;
+        temp = resp.data.menu_items;
         for(var i=temp.length;i--;){
           if(temp[i].description.indexOf(ref.searchKey) !== -1){
             ref.matchedItems.push(temp[i]);
