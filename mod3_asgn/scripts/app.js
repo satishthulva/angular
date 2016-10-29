@@ -23,9 +23,9 @@ function menuFetchServiceFunc($http){
             matchedItems.push(temp[i]);
           }
         }
+  
+      return matchedItems;
     });
-
-    return matchedItems;
   };
 }
 
