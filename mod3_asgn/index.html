@@ -10,7 +10,7 @@
       <input type="text" placeholder="search for the dish" ng-model="ctrl.searchKey"></input>
       <button ng-click="ctrl.fetchMatchedItems()">Narrow It Down For Me!</button>
 
-      <matched-items items="ctrl.matchedItems" remove-item="ctrl.removeItem(index)" atleast-one-click="atleastOneClick"></matched-items>
+      <matched-items items="ctrl.matchedItems" remove-item="ctrl.removeItem(index)" atleast-one-click="ctrl.atleastOneClick"></matched-items>
     </div>
     <!-- Loading the required library dependencies at the end of body tag is always good as it does not block the page from loading. So, user will see something instead of biting the fingernails :P  -->
     <script type="text/javascript" src="../angular.min.js"></script>
