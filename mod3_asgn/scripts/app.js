@@ -26,11 +26,15 @@ function restaurantMenuSearchControllerFunc($http){
           }
         }
     });
+
+    ref.atleastOneClick = true;
   };
 
   ref.removeItem = function(index){
     ref.matchedItems.splice(index, 1);
   };
+
+  ref.atleastOneClick = false;
 }
 
 // Specifying dependencies
