@@ -15,7 +15,7 @@ function menuFetchServiceFunc($http){
   * Fetch the menu from restaurants' api and filter based on the search key
   **/
   ref.fetchMatchedItems = function(searchKey){
-    $http.get('https://davids-restaurant.herokuapp.com/menu_items.json').then(function(resp){
+    return $http.get('https://davids-restaurant.herokuapp.com/menu_items.json').then(function(resp){
         var temp = resp.data.menu_items;
         ref.matchedItems = [];
         for(var i=temp.length;i--;){
