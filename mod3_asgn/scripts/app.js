@@ -31,7 +31,7 @@ function menuFetchServiceFunc($http){
 menuFetchServiceFunc.$inject = ['$http'];
 
 // controller definition
-function restaurantMenuSearchControllerFunc('menuFetchService'){
+function restaurantMenuSearchControllerFunc(menuFetchService){
   var ref = this;
   ref.matchedItems = [];
   ref.atleastOneClick = false;
