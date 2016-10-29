@@ -3,11 +3,35 @@
 **/
 (function(){
 angular.module('restaurantMenuSearchApp',[])
+  .service('menuFetchService', menuFetchServiceFunc)
   .controller('restaurantMenuSearchController', restaurantMenuSearchControllerFunc)
   .directive('matchedItems', restaurantMenuDirectiveFunc);
 
+// menu fetch service definition
+function menuFetchServiceFunc($http){
+  var ref = this;
+  /**
+  * Fetch the menu from restaurants' api and filter based on the search key
+  **/
+  ref.fetchMatchedItems = function(searchKey){
+    $http.get('https://davids-restaurant.herokuapp.com/menu_items.json').then(function(resp){
+        var matchedItems = [];
+        var temp = resp.data.menu_items;
+        for(var i=temp.length;i--;){
+          if(temp[i].description.indexOf(searchKey) !== -1){
+            matchedItems.push(temp[i]);
+          }
+        }
+    });
+
+    return matchedItems;
+  };
+}
+
+menuFetchServiceFunc.$inject = ['$http'];
+
 // controller definition
-function restaurantMenuSearchControllerFunc($http){
+function restaurantMenuSearchControllerFunc('menuFetchService'){
   var ref = this;
   ref.matchedItems = [];
   ref.atleastOneClick = false;
@@ -18,16 +42,7 @@ function restaurantMenuSearchControllerFunc($http){
   * Fetch the menu from restaurants' api and filter based on the search key
   **/
   ref.fetchMatchedItems = function(){
-    $http.get('https://davids-restaurant.herokuapp.com/menu_items.json').then(function(resp){
-        ref.matchedItems = [];
-        temp = resp.data.menu_items;
-        for(var i=temp.length;i--;){
-          if(temp[i].description.indexOf(ref.searchKey) !== -1){
-            ref.matchedItems.push(temp[i]);
-          }
-        }
-    });
-
+    ref.matchedItems = menuFetchService.fetchMatchedItems(ref.searchKey);
     ref.atleastOneClick = true;
   };
 
@@ -37,7 +52,7 @@ function restaurantMenuSearchControllerFunc($http){
 }
 
 // Specifying dependencies
-restaurantMenuSearchControllerFunc.$inject = ['$http'];
+restaurantMenuSearchControllerFunc.$inject = ['menuFetchService'];
 
 // directive Definitin Object returning function
 function restaurantMenuDirectiveFunc(){
