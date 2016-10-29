@@ -24,9 +24,8 @@ function menuFetchServiceFunc($http){
           }
         }
   
+        return ref.matchedItems;
     });
-    
-    return ref.matchedItems;
   };
 }
 
@@ -44,7 +43,7 @@ function restaurantMenuSearchControllerFunc(menuFetchService){
   * Fetch the menu from restaurants' api and filter based on the search key
   **/
   ref.fetchMatchedItems = function(){
-    ref.matchedItems = menuFetchService.fetchMatchedItems(ref.searchKey);
+    menuFetchService.fetchMatchedItems(ref.searchKey).then(function(resp){ref.matchedItems = resp.data});
     ref.atleastOneClick = true;
   };
 
