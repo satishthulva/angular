@@ -26,7 +26,11 @@ function restaurantMenuSearchControllerFunc($http){
           }
         }
     });
-  }
+  };
+
+  ref.removeItem = function(index){
+    ref.matchedItems.splice(index, 1);
+  };
 }
 
 // Specifying dependencies
@@ -38,9 +42,7 @@ var ddo = {
       restrict : 'E',
       scope : {
         matches : '=items',
-        removeItem = function(index){
-          matches.splice(index);
-        }
+        removeItem : '&removeItem'
       },
       templateUrl : '../templates/restaurant_menu.html'
   };
