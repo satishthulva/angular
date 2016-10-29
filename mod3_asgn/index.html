@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Restaurants' Menu Search</title>
+    <script type="text/javascript" src="scripts/app.js"></script>
+  </head>
+  <body>
+    <div ng-app="restaurantMenuSearchApp" ng-controller="restaurantMenuSearchController as ctrl">
+      <h2>Menu</h2>
+      <input type="text" placeholder="search for the dish" ng-model="ctrl.searchKey"></input>
+      <button ng-click="ctrl.fetchMatchedItems()"></button>
+
+      <matchedItems items="ctrl.matchedItems"></matchedItems>
+    </div>
+    <!-- Loading the required library dependencies at the end of body tag is always good as it does not block the page from loading. So, user will see something instead of biting the fingernails :P  -->
+    <script type="text/javascript" src="../angular.min.js"></script>
+  </body>
+</html>
