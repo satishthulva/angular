@@ -45,7 +45,8 @@ var ddo = {
       restrict : 'E',
       scope : {
         matches : '=items',
-        removeItem : '&removeItem'
+        removeItem : '&removeItem',
+        atleastOneClick : '=atleastOneClick'
       },
       templateUrl : 'templates/restaurant_menu.html'
   };
