@@ -44,7 +44,7 @@ var ddo = {
         matches : '=items',
         removeItem : '&removeItem'
       },
-      templateUrl : '../templates/restaurant_menu.html'
+      templateUrl : 'templates/restaurant_menu.html'
   };
 
   return ddo;
