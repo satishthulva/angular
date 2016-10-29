@@ -10,7 +10,8 @@ angular.module('restaurantMenuSearchApp',[])
 function restaurantMenuSearchControllerFunc($http){
   var ref = this;
   ref.matchedItems = [];
-
+  ref.atleastOneClick = true;
+  
   var temp;
 
   /**
@@ -33,8 +34,6 @@ function restaurantMenuSearchControllerFunc($http){
   ref.removeItem = function(index){
     ref.matchedItems.splice(index, 1);
   };
-
-  ref.atleastOneClick = false;
 }
 
 // Specifying dependencies
