@@ -10,13 +10,14 @@ angular.module('restaurantMenuSearchApp',[])
 // menu fetch service definition
 function menuFetchServiceFunc($http){
   var ref = this;
+  var matchedItems = [];
   /**
   * Fetch the menu from restaurants' api and filter based on the search key
   **/
   ref.fetchMatchedItems = function(searchKey){
     $http.get('https://davids-restaurant.herokuapp.com/menu_items.json').then(function(resp){
-        var matchedItems = [];
         var temp = resp.data.menu_items;
+        matchedItems = [];
         for(var i=temp.length;i--;){
           if(temp[i].description.indexOf(searchKey) !== -1){
             matchedItems.push(temp[i]);
