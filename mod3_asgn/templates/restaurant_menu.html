@@ -5,7 +5,7 @@
 
   <ul>
     <li ng-repeat="item in matches">
-      {{item.short_name}}&nbsp;&nbsp;{{item.name}}&nbsp;&nbsp;{{item.description}}&nbsp;&nbsp;<button ng-click="removeItem({index:$index})">Don't want this one!</button>
+      Short Name&nbsp;:&nbsp;{{item.short_name}}<br>Name&nbsp;:&nbsp;{{item.name}}<br>Description&nbsp;:&nbsp;{{item.description}}<br><button ng-click="removeItem({index:$index})">Don't want this one!</button>
       <br>
     </li>
   <ul>
