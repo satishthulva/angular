@@ -10,7 +10,7 @@ angular.module('restaurantMenuSearchApp',[])
 function restaurantMenuSearchControllerFunc($http){
   var ref = this;
   ref.matchedItems = [];
-  ref.atleastOneClick = true;
+  ref.atleastOneClick = false;
   
   var temp;
 
